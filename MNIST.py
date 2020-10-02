@@ -19,9 +19,11 @@ print(f"length of labels is {len(test_labels)}")
 '''
 network = models.Sequential()
 # добавляется полносвязный слой
+# на первом слое важно указвать размерность входных данных
 network.add(layers.Dense(512, activation="relu", input_shape=(28*28,)))
 # добавляется слой потерь, он возвращает массив с 10 оценками вероятностей принадлежности рукописной
 # цифры к классу
+# все слои после первого сами подстраиваются по размерность данных
 network.add(layers.Dense(10, activation="softmax"))
 
 '''
